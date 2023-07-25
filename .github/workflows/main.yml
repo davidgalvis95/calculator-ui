@@ -23,4 +23,4 @@ jobs:
         run: |
           echo "REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }}" >> $GITHUB_ENV
       - name: Deploy app build to S3 bucket
-        run: aws s3 sync ./build/ s3://<bucket-name> --delete
+        run: aws s3 sync ./build/ s3://${{ secrets.S3_BUCKET }} --delete

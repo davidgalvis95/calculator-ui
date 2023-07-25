@@ -35,14 +35,14 @@ export const EnhancedTablePaginator = ({
       <button
         className="pagingPrevButton"
         disabled={page === 1}
-        onClick={(e) => handleSwitchPage(PREV_PAGE)}
+        onClick={() => handleSwitchPage(PREV_PAGE)}
       >
         <GrFormPrevious />
       </button>
       <button
         className="pagingNextButton"
         disabled={totalPages === 0 || page === totalPages}
-        onClick={(e) => handleSwitchPage(NEXT_PAGE)}
+        onClick={() => handleSwitchPage(NEXT_PAGE)}
       >
         <GrFormNext />
       </button>

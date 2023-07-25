@@ -41,7 +41,7 @@ export const EnhancedTableRow = (props) => {
         </TableCell>
       ) : null}
 
-      {Object.entries(rowData).map(([cellKey, cellValue], index) => {
+      {Object.entries(rowData).map(([cellKey, cellValue]) => {
         if (cellKey === "id") {
           return (
             <TableCell

@@ -33,7 +33,7 @@ export const EnhancedTableToolbar = (props) => {
       <div>
         {filters.map((filter) => {
           return (
-            <FormControl sx={{ ml: 2 }}>
+            <FormControl key={filter.filterValue} sx={{ ml: 2 }}>
               <div className="filter">{filter.display}</div>
               <Select
                 key={filter.filterFieldName}
@@ -76,6 +76,7 @@ export const EnhancedTableToolbar = (props) => {
         {numSelected > 0 &&
           actionNames.map((name) => (
             <Button
+              key={name}
               sx={{
                 backgroundColor: "#f19066",
                 color: "black",

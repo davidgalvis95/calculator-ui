@@ -98,11 +98,11 @@ export const UsersTable = () => {
     if (action === "SWITCH STATUS") {
       Promise.all(
         selectedUserIds.map((id) => switchUserStatus(id))
-      ).then((r) => getAllUsers());
+      ).then(() => getAllUsers());
     } else {
       Promise.all(
         selectedUserIds.map((id) => upgradeUserToAdmin(id))
-      ).then((r) => getAllUsers());
+      ).then(() => getAllUsers());
     }
   };
 

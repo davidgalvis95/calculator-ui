@@ -376,7 +376,7 @@ const Calculator = () => {
                   fullWidth
                   color="primary"
                   disabled={disableOperator(op)}
-                  onClick={(e) => handleOperatorClick(op)}
+                  onClick={() => handleOperatorClick(op)}
                 >
                   {op}
                 </Button>

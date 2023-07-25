@@ -19,7 +19,7 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
-const SidebarWrapper = styled(Drawer)(({ theme }) => ({
+const SidebarWrapper = styled(Drawer)(() => ({
   width: "auto",
   flexShrink: 0,
   "& .MuiDrawer-paper": {
@@ -53,7 +53,7 @@ const Sidebar = (props) => {
   const navigate = useNavigate();
   const { userMeta } = useSelector((state) => state.auth);
 
-  const SignOutButton = styled(ListItem)(({ theme }) => ({
+  const SignOutButton = styled(ListItem)(() => ({
     backgroundColor: "#82ccdd",
     color: "#0a3d62",
     width: props.open ? "auto" : "60px",

@@ -52,7 +52,7 @@ const useAdminApi = () => {
   const logOut = async () => {
     return await calculatorApiService
       .post(`auth/logout`)
-      .then((response) => {
+      .then(() => {
         dispatch({ type: "USER_SIGNED_OUT" });
       })
       .catch((err) => {

@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - master
-
+env:
+  REACT_APP_API_BASE_URL: http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,8 +20,5 @@ jobs:
           aws-region: us-east-1
       - name: Build React App
         run: npm install && npm run build
-      - name: Set Environment Variables
-        run: |
-          echo "REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }}" >> $GITHUB_ENV
       - name: Deploy app build to S3 bucket
         run: aws s3 sync ./build/ s3://${{ secrets.S3_BUCKET }} --delete

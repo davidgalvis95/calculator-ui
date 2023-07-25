@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+.container {
+  margin: auto;
+  /* margin-left: 60px; */
+  width: 50%;
+  display: flex;
+  /* background-color: #487eb0; */
+}
+
+.innerContainer {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+    /* margin-bottom: 15% */
+    background-color: #d1d8e0;
+}
+
+.innerContainerTitle {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+    /* margin-bottom: 15% */
+    background-color: #d1d8e0;
+}
+
+.displayContainer {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+
+    /* margin-bottom: 15% */
+    background-color: #d1d8e0;
+}
+
+.title {
+  font-size: 32px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.operandInput{
+  width: 100%;
+  background-color: #f1f2f6;
+  text-align: center;
+}
+
+.inputs-and-dropdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding-bottom: 20px;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.error-message {
+  color: #487eb0;
+  font-size: 12px;
+  margin: 0%;
+  padding: 0%;
+  font-family: 'Raleway', sans-serif;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  /* max-width: 20px; */
+}
+
+.result-container {
+  /* display: flex; */
+  /* align-items: center; */
+  /* margin: auto; */
+  margin-top: 50px;
+  opacity: 70%;
+  width: auto;
+  background-color: #54a0ff;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.resultTextTitle {
+  font-size: 15px;
+}
+
+.resultText {
+  font-size: 30px;
+}

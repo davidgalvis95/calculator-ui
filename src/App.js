@@ -7,10 +7,6 @@ import Modal from "./components/modal/Modal";
 function App() {
   const error = useSelector((state) => state.error);
   const [modalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    console.log(process.env.REACT_APP_API_BASE_URL);
-  }, []);
   
   useEffect(() => {
     if (error.title) {

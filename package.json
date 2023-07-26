@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "start-local": "env-cmd -f .env.local react-scripts start",
     "build-local": "env-cmd -f .env.local react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.33.0",
     "react-scripts": "^5.0.1"

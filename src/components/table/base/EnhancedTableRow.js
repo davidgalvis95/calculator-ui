@@ -45,7 +45,7 @@ export const EnhancedTableRow = (props) => {
         if (cellKey === "id") {
           return (
             <TableCell
-              sx={{ paddingRight: "20px" }}
+              sx={{ padding: "16px" }}
               key={cellKey}
               component="th"
               id={labelId}
@@ -58,7 +58,7 @@ export const EnhancedTableRow = (props) => {
         } else {
           return (
             <TableCell
-              sx={{ paddingRight: "20px" }}
+              sx={{ paddingRight: "16px" }}
               key={cellKey}
               align="right"
             >

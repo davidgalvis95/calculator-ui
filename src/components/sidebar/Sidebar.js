@@ -2,13 +2,7 @@ import React from "react";
 import useAuthApi from "../../hooks/useAuthApi";
 import { useSelector } from "react-redux";
 import { styled } from "@mui/system";
-import {
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
+import { Drawer, List, ListItem } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   Calculate as CalculateIcon,
@@ -18,53 +12,28 @@ import {
   Group as GroupIcon,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import {
+  logoutIcon,
+  sideBarContainer,
+  sideBarWrapper,
+  signOutButton,
+  signOutButtonWrapper,
+  sideBarIconsStyles,
+  sideBarContainerStyle
+} from "./SidebarMuiStyles";
 
-const SidebarWrapper = styled(Drawer)(() => ({
-  width: "auto",
-  flexShrink: 0,
-  "& .MuiDrawer-paper": {
-    width: "auto",
-    backgroundColor: "#0a3d62",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-}));
-
-const SidebarContainer = styled("div")(({ theme }) => ({
-  overflow: "auto",
-  alignItems: "center",
-  padding: theme.spacing(2),
-}));
-
+const SidebarWrapper = styled(Drawer)(() => (sideBarWrapper));
+const SidebarContainer = styled("div")(({ theme }) => (sideBarContainerStyle(theme)));
 const SignOutButtonWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(2),
 }));
 
-const sideBarIconsStyles = {
-  color: "#82ccdd",
-  fontSize: "35px",
-  paddingTop: "10px",
-};
-
-const Sidebar = (props) => {
+const Sidebar = () => {
   const authService = useAuthApi();
   const navigate = useNavigate();
   const { userMeta } = useSelector((state) => state.auth);
 
-  const SignOutButton = styled(ListItem)(() => ({
-    backgroundColor: "#82ccdd",
-    color: "#0a3d62",
-    width: props.open ? "auto" : "60px",
-    "&:hover": {
-      backgroundColor: "#60a3bc",
-      color: "black",
-      "& .MuiListItemIcon-root": {
-        color: "black",
-      },
-    },
-  }));
+  const SignOutButton = styled(ListItem)(() => (signOutButton));
 
   const navigateProfile = () => {
     navigate("/profile");
@@ -88,7 +57,7 @@ const Sidebar = (props) => {
 
   return (
     <SidebarWrapper variant="permanent">
-      <SidebarContainer>
+      <SidebarContainer sx={sideBarContainer}>
         <List>
           <div title="Profile">
             <AccountCircleIcon
@@ -113,19 +82,15 @@ const Sidebar = (props) => {
         </List>
       </SidebarContainer>
       <div title="Log out">
-        <SignOutButtonWrapper>
+        <SignOutButtonWrapper sx={signOutButtonWrapper}>
           <List>
             <SignOutButton
               button
               component={Link}
               onClick={handleSignoutClick}
               to="/sign-in"
-              style={{ borderRadius: "4px" }}
             >
-              <ListItemIcon sx={{ color: "#0a3d62" }}>
-                <LogoutIcon />
-              </ListItemIcon>
-              {props.open && <ListItemText primary="Sign Out" />}
+              <LogoutIcon className="logoutIcon" sx={logoutIcon} />
             </SignOutButton>
           </List>
         </SignOutButtonWrapper>

@@ -37,6 +37,11 @@ export const EnhancedTableRow = (props) => {
             inputProps={{
               "aria-labelledby": labelId,
             }}
+            sx={{
+              "@media screen and (max-width: 900px)": {
+                transform: "scale(0.7)",
+              },
+            }}
           />
         </TableCell>
       ) : null}
@@ -45,7 +50,13 @@ export const EnhancedTableRow = (props) => {
         if (cellKey === "id") {
           return (
             <TableCell
-              sx={{ padding: "16px" }}
+              sx={{
+                padding: "16px",
+                "@media screen and (max-width: 900px)": {
+                  fontSize: "10px",
+                  padding: "5px",
+                },
+              }}
               key={cellKey}
               component="th"
               id={labelId}
@@ -58,7 +69,13 @@ export const EnhancedTableRow = (props) => {
         } else {
           return (
             <TableCell
-              sx={{ paddingRight: "16px" }}
+              sx={{
+                paddingRight: "16px",
+                "@media screen and (max-width: 900px)": {
+                  fontSize: "10px",
+                  paddingRight: "5px",
+                },
+              }}
               key={cellKey}
               align="right"
             >

@@ -9,6 +9,7 @@ import { EnhancedTableToolbar } from "./EnhancedTableToolBar";
 import { EnhancedTableHead } from "./EnhancedTableHead";
 import { EnhancedTableBody } from "./EnhancedTableBody";
 import { EnhancedTablePaginator } from "./EnhancedTablePaginator";
+import { table, tableContainer } from "./EnhancedTableMuiStyles";
 
 const descendingComparator = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) {
@@ -53,7 +54,7 @@ export const EnhancedTable = (props) => {
     actionNames,
     generalStyles,
     disableCheckForIds,
-    defaultOrder
+    defaultOrder,
   } = props;
   const [order, setOrder] = useState(defaultOrder || "asc");
   const [orderBy, setOrderBy] = useState(defaultSelectedSortField);
@@ -156,7 +157,7 @@ export const EnhancedTable = (props) => {
 
   return (
     <div>
-      <h2>{title}</h2>
+      <p>{title}</p>
       <Box sx={{ width: "100%" }}>
         <Paper sx={{ width: "100%", mb: 2 }}>
           <EnhancedTableToolbar
@@ -167,9 +168,9 @@ export const EnhancedTable = (props) => {
             actionNames={actionNames}
           />
 
-          <TableContainer>
+          <TableContainer sx={tableContainer(generalStyles)}>
             <Table
-              sx={{ minWidth: generalStyles.minWidth }}
+              sx={table(generalStyles)}
               aria-labelledby="tableTitle"
               size={"medium"}
             >

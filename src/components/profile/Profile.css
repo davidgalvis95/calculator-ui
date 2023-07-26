@@ -1,0 +1,14 @@
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 110px;
+    font-size: 20px;
+}
+
+.profileText {
+    margin-top: 30px;
+}
+
+.personIcon {
+    height: 200px;
+}

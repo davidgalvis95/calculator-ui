@@ -6,6 +6,7 @@ import Calculator from "./components/calculator/Calculator";
 import { UsersTable } from "./components/table/users/UsersTable";
 import { HistoryTable } from "./components/table/history/HistoryTable";
 import SignUp from "./components/login/SignUp";
+import Profile from "./components/profile/Profile";
 
 const RoutesComponent = () => {
   const { userMeta } = useSelector((state) => state.auth);
@@ -15,6 +16,7 @@ const RoutesComponent = () => {
       <Routes>
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        {userMeta && <Route path="/profile" element={<Profile userEmail={userMeta.email} userRoles={userMeta.roles}/>} />}
         {userMeta && <Route path="/calculator" element={<Calculator />} />}
         {userMeta && <Route path="/history" element={<HistoryTable />} />}
         {userMeta && userMeta.roles?.find((role) => role === "ROLE_ADMIN") && (

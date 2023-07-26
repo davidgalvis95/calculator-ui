@@ -56,3 +56,15 @@
     opacity: 40%;
     cursor: auto;
 }
+
+@media screen and (max-width: 900px) {
+    .pagingNextButton{
+        font-size: 12px;
+    }
+    .pagingPrevButton{
+        font-size: 12px;
+    }
+    .pagingContainer{
+        font-size: 11px;
+    }
+}

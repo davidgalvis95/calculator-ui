@@ -7,7 +7,7 @@ import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import "./EnhancedTableHead.css"
+import "./EnhancedTableHead.css";
 
 export const EnhancedTableHead = (props) => {
   const {
@@ -18,14 +18,14 @@ export const EnhancedTableHead = (props) => {
     numSelected,
     rowCount,
     onRequestSort,
-    enableSelect
+    enableSelect,
   } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
 
   return (
-    <TableHead sx={{backgroundColor: "#82ccdd"}}>
+    <TableHead sx={{ backgroundColor: "#82ccdd" }}>
       <TableRow>
         {enableSelect ? (
           <TableCell padding="checkbox">
@@ -37,13 +37,23 @@ export const EnhancedTableHead = (props) => {
               inputProps={{
                 "aria-label": "select all desserts",
               }}
+              sx={{
+                "@media screen and (max-width: 900px)": {
+                  transform: "scale(0.7)",
+                },
+              }}
             />{" "}
           </TableCell>
         ) : null}
 
         {headers.map((headCell) => (
           <TableCell
-            sx={{padding: "20px"}}
+            sx={{
+              padding: "20px",
+              "@media screen and (max-width: 900px)": {
+                fontSize: "10px",
+              },
+            }}
             key={headCell.id}
             align={headCell.numeric ? "right" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}

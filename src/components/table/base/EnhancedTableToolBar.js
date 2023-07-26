@@ -34,13 +34,20 @@ export const EnhancedTableToolbar = (props) => {
         {filters.map((filter) => {
           return (
             <FormControl key={filter.filterValue} sx={{ ml: 2 }}>
-              <div className="filter">{filter.display}</div>
+              <div
+                className="filter"
+              >
+                {filter.display}
+              </div>
               <Select
                 key={filter.filterFieldName}
                 sx={{
                   maxHeight: "25px",
                   fontSize: "15px",
                   backgroundColor: "#fff",
+                  "@media screen and (max-width: 900px)": {
+                    fontSize: "12px",
+                  },
                 }}
                 value={filter.filterValue}
                 onChange={(event) => {
@@ -83,6 +90,12 @@ export const EnhancedTableToolbar = (props) => {
                 marginLeft: "15px",
                 "&:hover": {
                   backgroundColor: "#e77f67",
+                },
+                "@media screen and (max-width: 900px)": {
+                  display: "flex",
+                  marginTop: "20px",
+                  marginLeft: "0px",
+                  fontSize: "8px",
                 },
               }}
               onClick={(e) => processSelected(e)}

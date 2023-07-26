@@ -20,7 +20,7 @@ const SignIn = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    authService.signIn(email, password).then(response => {
+    authService.signIn(email, password).then((response) => {
       if (response) {
         navigate("/calculator");
       }
@@ -51,31 +51,24 @@ const SignIn = () => {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-                    <OutlinedInput
-              className="registerInput"
-              type={showPassword ? "text" : "password"}
-              onChange={(event) => setPassword(event.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
-            />
-        {/* <TextField
-          className="loginInput"
-          label="password"
-          type="password"
-          value={password}
+        <OutlinedInput
+          className="registerInput"
+          type={showPassword ? "text" : "password"}
           onChange={(event) => setPassword(event.target.value)}
-        /> */}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          }
+          label="Password"
+        />
         <Button
           sx={{ borderRadius: 20, backgroundColor: "#60a3bc" }}
           type="submit"

@@ -8,6 +8,8 @@
   /* background-color: #487eb0; */
 }
 
+
+
 .innerContainer {
   margin-left: 15%;
   margin-right: 15%;
@@ -46,6 +48,25 @@
 .title {
   font-size: 32px;
   font-family: 'Raleway', sans-serif;
+}
+
+@media screen and (max-width: 1000px) {
+  /* Set the width to 30% for screens smaller than 400px */
+  .title {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* Set the width to 30% for screens smaller than 400px */
+  .title {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* Set the width to 30% for screens smaller than 400px */
+  .title {
+    font-size: 17px;
+  }
 }
 
 .operandInput{
@@ -101,4 +122,36 @@
 
 .resultText {
   font-size: 30px;
+}
+
+.buttonsNumberContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  /* Set the width to 30% for screens smaller than 400px */
+  .container {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 20px;
+    /* margin-left: 0px; */
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  /* Set the width to 30% for screens smaller than 400px */
+  .container {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  /* Set the width to 30% for screens smaller than 400px */
+  .container {
+    width: 75%;
+  }
 }

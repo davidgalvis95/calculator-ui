@@ -3,7 +3,11 @@ import { Grid, TextField, Button } from "@mui/material";
 import "./Calculator.css";
 import Sidebar from "../sidebar/Sidebar";
 import useOperationsApi from "../../hooks/useOperationsApi";
-
+import {
+  numberButtonStyle,
+  operatorButtonStyle,
+  textFieldStyle,
+} from "./CalculatorMuiStyles";
 const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "."];
 const operations = {
   "+": "ADDITION",
@@ -52,7 +56,6 @@ const Calculator = () => {
       setShownText(answer.toString());
     }
   }, [answer]);
-
 
   const handleNumberClick = (event) => {
     const value = event.target.textContent;
@@ -308,12 +311,7 @@ const Calculator = () => {
             value={shownText}
             disabled={true}
             inputProps={{
-              style: {
-                textAlign: "right",
-                overflow: "hidden",
-                whiteSpace: "nowrap",
-                textOverflow: "ellipsis",
-              },
+              style: textFieldStyle,
             }}
           />
         </Grid>
@@ -322,26 +320,21 @@ const Calculator = () => {
         <Grid item xs={12} className="inputs-and-dropdown-container">
           <Grid
             container
-            className="calculator"
+            // className="calculator"
             spacing={1}
             xs={8}
             justifyContent="center"
           >
             {numbersArray.map((num) => (
-              <Grid
-                key={num}
-                item
-                xs={4}
-                className="inputs-and-dropdown-container"
-              >
+              <Grid key={num} item xs={4} className="buttonsNumberContainer">
                 <Button
-                  sx={{
-                    borderRadius: 5,
-                    backgroundColor: "#74b9ff",
-                    width: "70px",
+                  // className="button"
+                  inputProps={{
+                    width: "100px",
                   }}
+                  sx={numberButtonStyle}
                   variant="contained"
-                  fullWidth
+                  // fullWidth
                   color="primary"
                   disabled={blockNum}
                   onClick={(e) => handleNumberClick(e, num)}
@@ -366,12 +359,7 @@ const Calculator = () => {
                 className="inputs-and-dropdown-container"
               >
                 <Button
-                  sx={{
-                    borderRadius: 5,
-                    backgroundColor:
-                      op === "=" || op === "DEL" ? "#4b6584" : "#95afc0",
-                    maxWidth: "70px",
-                  }}
+                  sx={operatorButtonStyle(op)}
                   variant="contained"
                   fullWidth
                   color="primary"

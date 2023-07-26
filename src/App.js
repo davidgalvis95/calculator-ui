@@ -7,7 +7,7 @@ import Modal from "./components/modal/Modal";
 function App() {
   const error = useSelector((state) => state.error);
   const [modalOpen, setIsModalOpen] = useState(false);
-  
+
   useEffect(() => {
     if (error.title) {
       setIsModalOpen(true);
@@ -18,7 +18,7 @@ function App() {
     setIsModalOpen(value);
   };
   return (
-    <div className="container">
+    <>
       {modalOpen && (
         <Modal
           setIsOpen={setIsOpen}
@@ -26,8 +26,10 @@ function App() {
           title={error.title}
         />
       )}
-      <RoutesComponent />
-    </div>
+      <div className="container">
+        <RoutesComponent />
+      </div>
+    </>
   );
 }
 

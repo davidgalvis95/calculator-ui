@@ -18,6 +18,8 @@ It is also important to mention that the app is currently being deployed to the 
 **Live version:**
 * The live site for this application can be found [here](http://calculator-app-ui.s3-website-us-east-1.amazonaws.com).
 * There is already a user created; **_username_**: `admin@yopmail.com`, **_password_**: `password`
+* You can create a user using the Sign-up screen and login with that user using the Sign-in screen, the users are created by default with USER privileges, if you want a user with an ADMIN privilege, you have to ask an already admin user as the `admin@yopmail.com` to mark it as ADMIN.
+* An admin can mark a user as ADMIN by navigating to the Users view in the UI, selecting the user in the table and marking it as ADMIN.
 
 **Local Environment:**
 * Make sure to have the [api](https://github.com/davidgalvis95/calculator-api) running locally.

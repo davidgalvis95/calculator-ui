@@ -4,7 +4,8 @@ const defaultAuthState = {
 
 const USER_SIGNED_IN = "USER_SIGNED_IN";
 const USER_SIGNED_OUT = "USER_SIGNED_OUT";
-const authReducer = (state = defaultAuthState, action) => {
+const BALANCE_ADDED_TO_USER = "BALANCE_ADDED_TO_USER";
+const userReducer = (state = defaultAuthState, action) => {
   switch (action.type) {
     case USER_SIGNED_IN:
       return {
@@ -16,9 +17,17 @@ const authReducer = (state = defaultAuthState, action) => {
         ...state,
         userMeta: undefined,
       };
+    case BALANCE_ADDED_TO_USER:
+      return {
+        ...state,
+        userMeta: {
+          ...state.userMeta,
+          balance: action.newBalance,
+        },
+      };
     default:
       return state;
   }
 };
 
-export default authReducer;
+export default userReducer;

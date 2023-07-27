@@ -31,7 +31,7 @@ const SignOutButtonWrapper = styled("div")(({ theme }) => ({
 const Sidebar = () => {
   const authService = useAuthApi();
   const navigate = useNavigate();
-  const { userMeta } = useSelector((state) => state.auth);
+  const { userMeta } = useSelector((state) => state.user);
 
   const SignOutButton = styled(ListItem)(() => (signOutButton));
 

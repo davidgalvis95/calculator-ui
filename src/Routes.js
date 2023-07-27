@@ -9,14 +9,25 @@ import SignUp from "./components/login/SignUp";
 import Profile from "./components/profile/Profile";
 
 const RoutesComponent = () => {
-  const { userMeta } = useSelector((state) => state.auth);
+  const { userMeta } = useSelector((state) => state.user);
 
   return (
     <Router>
       <Routes>
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        {userMeta && <Route path="/profile" element={<Profile userEmail={userMeta.email} userRoles={userMeta.roles}/>} />}
+        {userMeta && (
+          <Route
+            path="/profile"
+            element={
+              <Profile
+                userEmail={userMeta.email}
+                userRoles={userMeta.roles}
+                userBalance={userMeta.balance}
+              />
+            }
+          />
+        )}
         {userMeta && <Route path="/calculator" element={<Calculator />} />}
         {userMeta && <Route path="/history" element={<HistoryTable />} />}
         {userMeta && userMeta.roles?.find((role) => role === "ROLE_ADMIN") && (

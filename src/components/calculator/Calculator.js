@@ -322,7 +322,6 @@ const Calculator = () => {
         <Grid item xs={12} className="inputs-and-dropdown-container">
           <Grid
             container
-            // className="calculator"
             spacing={1}
             xs={8}
             justifyContent="center"
@@ -330,13 +329,11 @@ const Calculator = () => {
             {numbersArray.map((num) => (
               <Grid key={num} item xs={4} className="buttonsNumberContainer">
                 <Button
-                  // className="button"
                   inputProps={{
                     width: "100px",
                   }}
                   sx={numberButtonStyle}
                   variant="contained"
-                  // fullWidth
                   color="primary"
                   disabled={blockNum}
                   onClick={(e) => handleNumberClick(e, num)}

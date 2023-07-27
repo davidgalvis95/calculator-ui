@@ -3,10 +3,12 @@ import useSession from "./useSession";
 import useHandleResponse from "./useHandleResponse";
 
 export const baseApiUrl = "/api/v1";
+import { useDispatch } from "react-redux";
 
 const useOperationsApi = () => {
   const { handle } = useHandleResponse();
   const { getUserToken } = useSession();
+  const dispatch = useDispatch();
 
   const getRecords = async (
     pageToken,
@@ -61,8 +63,7 @@ const useOperationsApi = () => {
   };
 
   const addUserBalance = async () => {
-    try {
-      const response = await calculatorApiService.post(
+      return await calculatorApiService.post(
         "/user/balance-funding",
         {},
         {
@@ -70,14 +71,20 @@ const useOperationsApi = () => {
             Authorization: getUserToken(),
           },
         }
-      ).data;
-      return handle(response);
-    } catch (error) {
-      return handle({
-        message: "Unknown error",
-        error: "Something went wrong",
+      ).then((response) => {
+        dispatch({ type: "BALANCE_ADDED_TO_USER", newBalance: response.data.payload.newBalance });
+        return response.data.payload.newBalance;
+      })
+      .catch((err) => {
+        handle({
+          message:
+            err?.response?.data?.message ||
+            err?.response?.data?.error ||
+            "Unknown error",
+          error: err?.response?.data?.error || "Something went wrong",
+          status: err?.response?.status || 500
+        });
       });
-    }
   };
 
   return {

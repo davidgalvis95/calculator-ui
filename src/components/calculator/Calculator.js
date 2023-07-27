@@ -148,6 +148,8 @@ const Calculator = () => {
           if (operator === "-") {
             return;
           }
+          setBlockNum(false);
+          setBlockOp(true);
           setOperator((prev) => {
             if (prev === "*" || prev === "/" || prev === "+" || prev === "√") {
               return prev;

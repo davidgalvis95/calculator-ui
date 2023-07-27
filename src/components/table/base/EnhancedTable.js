@@ -28,6 +28,7 @@ const getComparator = (order, orderBy) => {
 };
 
 const stableSort = (array, comparator) => {
+  console.log(array);
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
@@ -74,7 +75,7 @@ export const EnhancedTable = (props) => {
     } else {
       setEmptyRows(0);
     }
-  }, [rowsData, statusFilter]);
+  }, [rowsData, statusFilter, order]);
 
   useEffect(() => {
     handleFilterApplied();

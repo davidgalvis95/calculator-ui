@@ -15,11 +15,11 @@ The database model can be seen in the following diagram:
 It is also important to mention that the app is currently being deployed to the cloud using the github actions pipelines.
 
 ## Calculator ui - How to use it
-*Live version:*
+**Live version:**
 * The live site for this application can be found [here](http://calculator-app-ui.s3-website-us-east-1.amazonaws.com).
 * There is already a user created; **_username_**: `admin@yopmail.com`, **_password_**: `password`
 
-*Local Environment:*
+**Local Environment:**
 * Make sure to have the [api](https://github.com/davidgalvis95/calculator-api) running locally.
 * Clone the following repo https://github.com/davidgalvis95/calculator-ui.
 * Run `npm install`.

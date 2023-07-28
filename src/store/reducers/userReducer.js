@@ -4,7 +4,7 @@ const defaultAuthState = {
 
 const USER_SIGNED_IN = "USER_SIGNED_IN";
 const USER_SIGNED_OUT = "USER_SIGNED_OUT";
-const BALANCE_ADDED_TO_USER = "BALANCE_ADDED_TO_USER";
+const BALANCE_CHANGE = "BALANCE_CHANGE";
 const userReducer = (state = defaultAuthState, action) => {
   switch (action.type) {
     case USER_SIGNED_IN:
@@ -17,7 +17,7 @@ const userReducer = (state = defaultAuthState, action) => {
         ...state,
         userMeta: undefined,
       };
-    case BALANCE_ADDED_TO_USER:
+    case BALANCE_CHANGE:
       return {
         ...state,
         userMeta: {

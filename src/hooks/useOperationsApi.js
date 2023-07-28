@@ -48,7 +48,9 @@ const useOperationsApi = () => {
         },
       })
       .then((response) => {
-        return response.data.payload.operationResult.result;
+        const payload = response.data.payload;
+        dispatch({ type: "BALANCE_CHANGE", newBalance: payload.currentUserBalance });
+        return payload.operationResult.result;
       })
       .catch((err) => {
         handle({
@@ -72,7 +74,7 @@ const useOperationsApi = () => {
           },
         }
       ).then((response) => {
-        dispatch({ type: "BALANCE_ADDED_TO_USER", newBalance: response.data.payload.newBalance });
+        dispatch({ type: "BALANCE_CHANGE", newBalance: response.data.payload.newBalance });
         return response.data.payload.newBalance;
       })
       .catch((err) => {

@@ -71,7 +71,7 @@ const SignUp = () => {
                   </IconButton>
                 </InputAdornment>
               }
-              label="Password"
+              data-testid="password-input"
             />
             <TextField
               className="registerInput"

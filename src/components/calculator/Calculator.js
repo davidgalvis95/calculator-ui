@@ -57,8 +57,11 @@ const Calculator = () => {
     }
   }, [answer]);
 
+  useEffect(() => {console.log("äa" ,shownText)}, [shownText])
+
   const handleNumberClick = (event) => {
     const value = event.target.textContent;
+    console.log(value);
     if (!isNaN(value) || value === ".") {
       if (!operatorHasBeenClicked) {
         setA((prev) => {
@@ -315,17 +318,14 @@ const Calculator = () => {
             inputProps={{
               style: textFieldStyle,
             }}
+            data-testid="shownTextInput"
           />
+          {console.log(shownText)}
         </Grid>
       </div>
       <div className="innerContainer">
         <Grid item xs={12} className="inputs-and-dropdown-container">
-          <Grid
-            container
-            spacing={1}
-            xs={8}
-            justifyContent="center"
-          >
+          <Grid container spacing={1} xs={8} justifyContent="center">
             {numbersArray.map((num) => (
               <Grid key={num} item xs={4} className="buttonsNumberContainer">
                 <Button

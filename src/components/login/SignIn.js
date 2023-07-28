@@ -42,7 +42,9 @@ const SignIn = () => {
       <Avatar sx={{ m: 1 }}>
         <LockOpenIcon />
       </Avatar>
-      <h2 className="loginTitle">Sign In</h2>
+      <h2 className="loginTitle" data-testid="title">
+        Sign In
+      </h2>
       <form onSubmit={handleLogin}>
         <TextField
           className="loginInput"
@@ -67,7 +69,7 @@ const SignIn = () => {
               </IconButton>
             </InputAdornment>
           }
-          label="Password"
+          data-testid="password-input"
         />
         <Button
           sx={{ borderRadius: 20, backgroundColor: "#60a3bc" }}
@@ -75,6 +77,7 @@ const SignIn = () => {
           fullWidth
           variant="contained"
           color="primary"
+          data-testid="sign-in-button"
         >
           Sign In
         </Button>

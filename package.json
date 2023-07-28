@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "start-local": "env-cmd -f .env.local react-scripts start",
     "build-local": "env-cmd -f .env.local react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" && --transformIgnorePatterns \"node_modules/(?!react)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

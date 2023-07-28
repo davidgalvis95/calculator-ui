@@ -8,11 +8,11 @@ jest.mock("../../../hooks/useAuthApi", () => ({
   default: jest.fn(),
 }));
 
-const mockedUsedNavigate = jest.fn();
+const mockedUseNavigate = jest.fn();
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockedUsedNavigate,
+  useNavigate: () => mockedUseNavigate,
 }));
 
 describe("SignUp component", () => {
@@ -64,6 +64,6 @@ describe("SignUp component", () => {
     const goSignInButton = screen.getByText("I Have An Account");
     fireEvent.click(goSignInButton);
 
-    expect(mockedUsedNavigate).toHaveBeenCalledWith("/sign-in");
+    expect(mockedUseNavigate).toHaveBeenCalledWith("/sign-in");
   });
 });
